@@ -10,6 +10,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 public class ILoveYou extends ApplicationAdapter{
+	char L1='L', L2='J';
+	
 	SpriteBatch batch;
 	Texture imagen0, imagen1;
 	Stage stage;
@@ -20,17 +22,201 @@ public class ILoveYou extends ApplicationAdapter{
 	float timef = 0, timef2 = 0;
 	boolean full= false;
 	
-	boolean A[][] = {{true,false,false,false,true},
-					 {true,true,true,true,true},
-					 {true,false,false,false,true},
-					 {false,true,false,true,false},
-					 {false,false,true,false,false},};
+	String heart[] = {"               *               ",
+					  "            *** ***            ",
+					  "         ****     ****         ",
+					  "       ***           ***       ",
+					  "     ***               ***     ",
+					  "    ***                 ***    ",
+					  "   ***                   ***   ",
+					  "  ***                     ***  ",
+					  " ***                       *** ",
+					  "***                         ***",
+					  "**                           **",
+					  "**                           **",
+					  "**                           **",
+					  "**                           **",
+					  "**             *             **",
+					  "***           ***           ***",
+					  " ***         ** **         *** ",
+					  "   ***     **     **     ***   ",
+					  "     ******         ******     ",
+					  "        *             *        ",
+					  };
 	
-	boolean J[][] = {{false,false,true,true,true},
-					 {false,false,true,false,true},
-					 {false,false,true,false,false},
-					 {false,false,true,false,false},
-					 {true,true,true,true,true},};
+	boolean y[][] = {{false,false,true,false,false},
+			 {false,false,true,false,false},
+			 {false,true,true,true,false},
+			 {false,true,false,true,false},
+			 {false,true,false,true,false},};
+	
+//	boolean A[][] = {{true,false,false,false,true},
+//					 {true,true,true,true,true},
+//					 {true,false,false,false,true},
+//					 {false,true,false,true,false},
+//					 {false,false,true,false,false},};
+	
+	String A[] = {"*   *",
+			      "*****",
+			      "*   *",
+			      " * * ",
+			      "  *  ",};
+	
+	String B[] = {" ****",
+				  "*   *",
+				  " ****",
+				  "*   *",
+				  " ****",};
+	
+	String C[] = {"*****",
+			      "    *",
+			      "    *",
+			      "    *",
+			      "*****",};
+	
+	String D[] = {" ****",
+			      "*   *",
+			      "*   *",
+			      "*   *",
+			      " ****",};
+	
+	String E[] = {"*****",
+			  	  "    *",
+			  	  " ****",
+			  	  "    *",
+			  	  "*****",};
+	
+	String F[] = {"    *",
+		  	  	  "    *",
+		  	  	  " ****",
+		  	  	  "    *",
+		  	  	  "*****",};
+	
+	String G[] = {"*****",
+		  	      "*   *",
+		  	      "*** *",
+		  	      "    *",
+		  	      "*****",};
+	
+	String H[] = {"*   *",
+		  	  	  "*   *",
+		  	  	  "*****",
+		  	  	  "*   *",
+		  	  	  "*   *",};
+	
+	String I[] = {"*****",
+		  	  	  "  *  ",
+		  	  	  "  *  ",
+		  	  	  "  *  ",
+		  	  	  "*****",};
+	
+	String J[] = {"  ***",
+	  	  	  	  "  * *",
+	  	  	  	  "  *  ",
+	  	  	  	  "  *  ",
+	  	  	  	  "*****",};
+	
+	String K[] = {"*   *",
+				  " *  *",
+	  	  	  	  "  * *",
+	  	  	  	  " *  *",
+	  	  	      "*   *",};
+	
+	String L[] = {"*****",
+				  "    *",
+	  	  	  	  "    *",
+	  	  	  	  "    *",
+	  	  	  	  "    *",};
+	
+	String M[] = {"*   *",
+	  	  	  	  "*   *",
+	  	  	  	  "* * *",
+	  	  	  	  "** **",
+	  	  	  	  "*   *",};
+	
+	String N[] = {"*   *",
+	  	  	  	  "**  *",
+	  	  	  	  "* * *",
+	  	  	  	  "*  **",
+	  	  	  	  "*   *",};
+	
+	String O[] = {" *** ",
+	  	  	  	  "*   *",
+	  	  	  	  "*   *",
+	  	  	  	  "*   *",
+	  	  	  	  " *** ",};
+	
+	String P[] = {"    *",
+	  	  	  	  "    *",
+	  	  	  	  " ****",
+	  	  	  	  "*   *",
+	  	  	  	  " ****",};
+	
+	String Q[] = {"**** ",
+	  	  	  	  "**  *",
+	  	  	  	  "* * *",
+	  	  	  	  "*   *",
+	  	  	  	  " *** ",};
+	
+	String R[] = {"*   *",
+	  	  	  	  " *  *",
+	  	  	  	  " ****",
+	  	  	  	  "*   *",
+	  	  	  	  " ****",};
+	
+	String S[] = {" *** ",
+	  	  	  	  " *  *",
+	  	  	  	  "  *  ",
+	  	  	  	  "*  * ",
+	  	  	  	  " *** ",};
+	
+	String T[] = {"  *  ",
+	  	  	  	  "  *  ",
+	  	  	  	  "  *  ",
+	  	  	  	  "  *  ",
+	  	  	  	  "*****",};
+	
+	String U[] = {"*****",
+	  	  	  	  "*   *",
+	  	  	  	  "*   *",
+	  	  	  	  "*   *",
+	  	  	  	  "*   *",};
+	
+	String V[] = {"  *  ",
+	  	  	  	  " * *",
+	  	  	  	  "*   *",
+	  	  	  	  "*   *",
+	  	  	  	  "*   *",};
+	
+	String W[] = {"*   *",
+	  	  	  	  "** **",
+	  	  	  	  "* * *",
+	  	  	  	  "*   *",
+	  	  	  	  "*   *",};
+	
+	String X[] = {"*   *",
+	  	  	  	  " * * ",
+	  	  	  	  "  *  ",
+	  	  	  	  " * * ",
+	  	  	  	  "*   *",};
+	
+	String Y[] = {"  *  ",
+	  	  	  	  "  *  ",
+	  	  	  	  "  *  ",
+	  	  	  	  " * * ",
+	  	  	  	  "*   *",};
+	
+	String Z[] = {"*****",
+	  	  	  	  "*    ",
+	  	  	  	  "  *  ",
+	  	  	  	  "    *",
+	  	  	  	  "*****",};
+	
+//	boolean J[][] = {{false,false,true,true,true},
+//					 {false,false,true,false,true},
+//					 {false,false,true,false,false},
+//					 {false,false,true,false,false},
+//					 {true,true,true,true,true},};
 	
 	@Override
 	public void create () {
@@ -59,7 +245,7 @@ public class ILoveYou extends ApplicationAdapter{
 		{
 			float delta = Gdx.graphics.getDeltaTime();
 			timef+=delta;
-			if(timef >= 0.01){//Cada 0.05 segundos avanza una fila
+			if(timef >= 0.00){//Cada 0.05 segundos avanza una fila
 				timef = 0;
 				//changeTextures();
 				for(int x = 0; x < 32; x++){//Pasa por todas las columnas
@@ -102,7 +288,13 @@ public class ILoveYou extends ApplicationAdapter{
 //					arreglo[i][j].selected = true;
 //				}
 //			}
-			animar(J);
+//			vertical
+//			animar(30,17,J);
+//			animar(24,17,y);
+//			animar(18,17,A);
+//			horizontal
+			drawText();
+			drawHeart(17, 30);
 		}
 	}
 	
@@ -144,18 +336,137 @@ public class ILoveYou extends ApplicationAdapter{
 		return true;
 	}
 	
-	private void animar(boolean letra[][]){
+	private void animar(int f, int c, boolean letra[][]){
 //		while(true){
 			float delta = Gdx.graphics.getDeltaTime();
 			timef+=delta;
 			if(timef>=0.5){
 				timef=0;
-				for (int i = 0,ii=13; i < letra.length; i++,ii++) {
-					for (int j = 0,jj=12; j < letra[i].length; j++,jj--) {
+				for (int i = 0,ii=f; i < letra.length; i++,ii++) {
+					for (int j = 0,jj=c; j < letra[i].length; j++,jj--) {
 						arreglo[ii][jj].selected = letra[i][j];
 					}
 				}
 			}
 //		}
+	}
+	
+	private void drawText(){
+		animar(25,10,getArray(L1));
+		animar(25,17,y);
+		animar(25,24,getArray(L2));
+	}
+	
+	private String[] getArray(char l){
+		switch (l) {
+		case 'A':
+			return A;
+case 'B':
+	return B;
+			
+case 'C':
+	return C;
+	
+case 'D':
+	return D;
+	
+case 'E':
+	return E;
+	
+case 'F':
+	return F;
+	
+case 'G':
+	return G;
+	
+case 'H':
+	return H;
+	
+case 'I':
+	return I;
+	
+case 'J':
+	return J;
+	
+case 'K':
+	return K;
+	
+case 'L':
+	return L;
+	
+case 'M':
+	return M;
+	
+case 'N':
+	return N;
+	
+case 'O':
+	return O;
+	
+case 'P':
+	return P;
+	
+case 'Q':
+	return Q;
+	
+case 'R':
+	return R;
+	
+case 'S':
+	return S;
+	
+case 'T':
+	return T;
+	
+case 'U':
+	return U;
+	
+case 'V':
+	return V;
+	
+case 'W':
+	return W;
+	
+case 'X':
+	return X;
+	
+case 'Y':
+	return Y;
+	
+case 'Z':
+	return Z;
+	
+		}
+		return null;
+	}
+	
+	private void animar(int f, int c, String letra[]){
+//		while(true){
+			float delta = Gdx.graphics.getDeltaTime();
+			timef+=delta;
+			if(timef>=0.5){
+				timef=0;
+				for (int i = 0,ii=f; i < letra.length; i++,ii++) {
+					for (int j = 0,jj=c; j < letra[i].length(); j++,jj--) {
+						if(letra[i].charAt(j)=='*')
+							arreglo[ii][jj].selected = true;
+					}
+				}
+			}
+//		}
+	}
+	
+	private void drawHeart(int f, int c){
+		float delta = Gdx.graphics.getDeltaTime();
+		timef+=delta;
+		if(timef>=0.5){
+			timef=0;
+			for (int i = 0,ii=f; i < heart.length; i++,ii++) {
+				for (int j = 0,jj=c; j < heart[i].length(); j++,jj--) {
+					if(heart[i].charAt(j)=='*')
+						arreglo[ii][jj].selected = true;
+				}
+			}
+		}
 	}
 }
