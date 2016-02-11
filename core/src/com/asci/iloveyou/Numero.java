@@ -7,7 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
 public class Numero extends Image{
 	
-	
+	public boolean activo = false;
 	
 	public Numero(Texture texture) {
 		super(texture);
