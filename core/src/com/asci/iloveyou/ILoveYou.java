@@ -59,27 +59,21 @@ public class ILoveYou extends ApplicationAdapter{
 		{
 			float delta = Gdx.graphics.getDeltaTime();
 			timef+=delta;
-			if(timef >= 0.01){//Cada 0.05 segundos avanza una fila
+			if(timef >= 0.01){//Cada 0.01 segundos avanza una fila
 				timef = 0;
 				//changeTextures();
 				for(int x = 0; x < 32; x++){//Pasa por todas las columnas
 					if(activos[x]){//Si esta activa continua; si no, pasa al siguiente ciclo
-						for(int y = 50; y >= 0; y--){
-							if(arreglo[y][x].activo && !done[y][x]){
-								if(y != 0){
+						for(int y = 50; y > -1; y--){
+							if(!done[y][x]){
 									done[y][x] = true;
-									arreglo[y-1][x] = new Numero(MathUtils.random(0,1)==1?imagen0:imagen1);
-									arreglo[y-1][x].setPosition(x*20, (y)*20);
-									arreglo[y-1][x].activo = true;
-									stage.addActor(arreglo[y-1][x]);
+									arreglo[y][x] = new Numero(MathUtils.random(0,1)==1?imagen0:imagen1);
+									arreglo[y][x].setPosition(x*20, (y)*20);
+									arreglo[y][x].activo = true;
+									stage.addActor(arreglo[y][x]);
+									if(y == 0)
+										llenos[x] = true;
 									break;
-								}else if(!llenos[x]){
-									arreglo[0][x] = new Numero(MathUtils.random(0,1)==1?imagen0:imagen1);
-									arreglo[0][x].setPosition(x*20, y*20);
-									arreglo[0][x].activo = true;
-									stage.addActor(arreglo[0][x]);
-									llenos[x] = true;
-								}
 							}
 						}
 					}
@@ -93,15 +87,15 @@ public class ILoveYou extends ApplicationAdapter{
 			}
 			full = isFull();
 		}else{
-			arreglo[49][31].selected = true;
-			arreglo[49][0].selected = true;
+			arreglo[50][31].selected = true;
+			arreglo[50][0].selected = true;
 			arreglo[0][31].selected = true;
 			arreglo[0][0].selected = true;
-//			for (int i = 0; i < arreglo.length; i++) {
-//				for (int j = 0; j < arreglo[i].length; j++) {
-//					arreglo[i][j].selected = true;
-//				}
-//			}
+			for (int i = 0; i < arreglo.length; i++) {
+				for (int j = 0; j < arreglo[i].length; j++) {
+					arreglo[i][j].selected = true;
+				}
+			}
 			animar(J);
 		}
 	}
@@ -118,8 +112,11 @@ public class ILoveYou extends ApplicationAdapter{
 		int randy = MathUtils.random(0, 31);
 			if(!activos[randy] && !llenos[randy]){
 				activos[randy] = true;
-				arreglo[50][randy] = new Numero(imagen0);
+				arreglo[50][randy] = new Numero(MathUtils.random(0,1)==1?imagen0:imagen1);
 				arreglo[50][randy].activo = true;
+				arreglo[50][randy].setPosition(randy*20, 1000);
+				done[50][randy] = true;
+				stage.addActor(arreglo[50][randy]);
 				return true;
 			}else{
 				boolean flag = false;
