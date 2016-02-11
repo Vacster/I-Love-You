@@ -11,7 +11,8 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 public class ILoveYou extends ApplicationAdapter{
 	char L1='L', L2='J';
-	float delayTime = 0.05f;
+	float delayTime = 0.00f;
+	boolean white = false;
 	
 	SpriteBatch batch;
 	Texture imagen0, imagen1;
@@ -237,7 +238,11 @@ public class ILoveYou extends ApplicationAdapter{
 	boolean flag = true;
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(1, 1, 1, 1);
+		if(white)
+			Gdx.gl.glClearColor(1, 1, 1, 1);
+		else
+			Gdx.gl.glClearColor(0, 0, 0, 1);
+		
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		stage.draw();
 		stage.act();
