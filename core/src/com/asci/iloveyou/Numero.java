@@ -3,11 +3,13 @@ package com.asci.iloveyou;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
 
 public class Numero extends Image{
 	
-	
+	public boolean activo = false;
 	
 	public Numero(Texture texture) {
 		super(texture);
@@ -19,9 +21,13 @@ public class Numero extends Image{
 		super.act(delta);
 	}
 	
+	public void changeTexture(Texture texture){
+		setDrawable(new SpriteDrawable(new Sprite(texture)));
+	}
+	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		setColor(Color.RED);
+		setColor(Color.BLACK);
 		super.draw(batch, parentAlpha);
 	}
 }
