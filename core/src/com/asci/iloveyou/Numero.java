@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
 public class Numero extends Image{
 	
 	public boolean activo = false;
+	public boolean selected = false;
 	
 	public Numero(Texture texture) {
 		super(texture);
@@ -27,7 +28,8 @@ public class Numero extends Image{
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		setColor(Color.BLACK);
+		if(selected)setColor(Color.RED);
+		else setColor(Color.BLACK);
 		super.draw(batch, parentAlpha);
 	}
 }
