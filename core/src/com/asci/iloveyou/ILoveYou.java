@@ -10,7 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 public class ILoveYou extends ApplicationAdapter{
-	char L1='L', L2='J';
+	char L1='G', L2='R';
 	float delayTime = 0.00f;
 	boolean white = false;
 	

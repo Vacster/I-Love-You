@@ -29,7 +29,7 @@ public class Numero extends Image{
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		if(selected)setColor(Color.RED);
-		//else setColor(Color.BLACK);
+		else setColor(Color.DARK_GRAY);
 		super.draw(batch, parentAlpha);
 	}
 }
